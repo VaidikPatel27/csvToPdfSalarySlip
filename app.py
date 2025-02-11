@@ -131,7 +131,7 @@ with pdf_data:
     else:
         file = "PDFs/test.pdf"
         displayPDF(file)
-        st.write('uploaded')
+        st.write('non-uploaded')
 
 
     
