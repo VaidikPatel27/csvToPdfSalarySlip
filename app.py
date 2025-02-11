@@ -1,7 +1,7 @@
 import streamlit as st
 import os
 import pandas as pd
-from functions import displayPDF, create_pdf, save_pdf 
+from functions import displayPDF, create_pdf, save_pdf, download_pdf
 import numpy as np
 from num2words import num2words
 
@@ -125,11 +125,16 @@ with in_data_col:
 file = "PDFs/output.pdf"
 
 with pdf_data_col:
-    if os.path.exists(file):
-        displayPDF(file)
-    else:
-        file = "PDFs/test.pdf"
-        displayPDF(file)
+    col1, col2, col3 = st.columns([1,10,1])
+    with col2:
+        if os.path.exists(file):
+            # st.download_button("Download", file, "output.pdf", mime="pdf")
+            download_pdf(file)
+            st.text(' ')
+            displayPDF(file)
+        else:
+            file = "PDFs/test.pdf"
+            displayPDF(file)
 
 
     
