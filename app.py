@@ -5,7 +5,9 @@ from functions import displayPDF, create_pdf, save_pdf, download_pdf
 import numpy as np
 from num2words import num2words
 
-st.set_page_config(layout="wide")
+st.set_page_config(layout="wide",
+                   page_title = "salary-slip",
+                   page_icon = "favicon.jpg")
 
 # get file
 def set_data_df(filepath):
