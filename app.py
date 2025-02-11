@@ -124,14 +124,14 @@ with in_data:
 
 file = "PDFs/output.pdf"
 
-st.write(os.path.exists(file))
-
 with pdf_data:
     if os.path.exists(file):
+        st.write('uploaded')
         displayPDF(file)
     else:
         file = "PDFs/test.pdf"
         displayPDF(file)
+        st.write('uploaded')
 
 
     

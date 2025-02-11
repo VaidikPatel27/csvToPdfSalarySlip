@@ -5,7 +5,7 @@ from reportlab.pdfgen import canvas
 from reportlab.lib import colors
 from reportlab.platypus import Table, TableStyle
 from reportlab.platypus import Table, TableStyle
-from pypdf import PdfWriter
+from pypdf import PdfWriter, PdfReader
 import os
 import numpy as np
 
