@@ -133,6 +133,4 @@ def download_pdf(file):
                         file_name="example.pdf",
                         mime="application/pdf"
                     )
-    
-    if os.path.exists(file):
-        os.remove(file)
+
