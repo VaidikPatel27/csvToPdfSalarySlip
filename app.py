@@ -20,7 +20,7 @@ def set_data_df(filepath):
     year = df['year'].astype('str')
     employee_id = df['id'].astype('str')
     designation = df['designation'].astype('str')
-    date_of_leaving = df['date_of_leaving']
+    date_of_leaving = df['date_of_leaving'].fillna('N/A')
     net_salary = df['net_salary'].astype('str')
     incentive_pay = df['incentive_pay'].astype('str')
 
@@ -63,7 +63,7 @@ with in_data_col:
         year = df['year'].astype('str')
         employee_id = df['id'].astype('str')
         designation = df['designation'].astype('str')
-        date_of_leaving = df['date_of_leaving']
+        date_of_leaving = df['date_of_leaving'].fillna('N/A')
         net_salary = df['net_salary'].astype('str')
         incentive_pay = df['incentive_pay'].astype('str')
 
@@ -106,11 +106,16 @@ with in_data_col:
                 # st.text(type(data_in['name']))
                 data_dic = {}
                 for col in data_in.columns:
-                    data_dic[f"{col}"] = data_in[col].iloc[0]
+                    if col != "date_of_leaving":
+                        data_dic[f"{col}"] = data_in[col].iloc[0]
                 data_in['gross_salary'] = float(data_in['net_salary']) + float(data_in['incentive_pay'])
-                data_in['date_of_leaving'] = data_in['date_of_leaving'].fillna("-")
+                data_in['date_of_leaving'] = df['date_of_leaving'].fillna('-')
                 data_dic['gross_salary'] = data_in['gross_salary'].iloc[0]
                 data_dic['amount_in_words'] = num2words(data_in['gross_salary'].iloc[0]).title()
+                data_dic['date_of_leaving'] = data_in['date_of_leaving'].iloc[0]
+                
+                print(data_in)
+                print(data_dic)
 
                 pdf_name = create_pdf(data_dic)
                 pdf_names.append(pdf_name)

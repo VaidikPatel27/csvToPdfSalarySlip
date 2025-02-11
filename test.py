@@ -133,3 +133,9 @@ def save_pdf(pdf_names):
 # in_data = {'name': 'Mayur', 'month': 'January', 'year': np.int64(2024), 'id': np.int64(2), 'designation': 'Process Associate', 'date_of_leaving': "N/A", 'net_salary': np.int64(20000), 'incentive_pay': np.int64(10000), 'date': 'January-2024', 'gross_salary': np.float64(30000.0), 'amount_in_words': 'thirty thousandth'}
 
 # create_pdf(in_data)
+
+import pandas as pd
+
+df = pd.read_csv('CSVs/salary_slip.csv')
+
+print(df['date_of_leaving'].fillna('N/A'))
