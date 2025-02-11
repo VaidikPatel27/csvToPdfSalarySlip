@@ -35,9 +35,9 @@ def set_data_df(filepath):
 
     return df
 
-in_data, unused, pdf_data = st.columns([3,1,8])
+in_data_col, unused, pdf_data_col = st.columns([3,1,8])
 
-with in_data:
+with in_data_col:
     uploaded_csv = st.file_uploader("Upload CSV here: ", accept_multiple_files=False, type = ['csv'] )
     # st.text(type(uploaded_csv))
 
@@ -124,7 +124,7 @@ with in_data:
 
 file = "PDFs/output.pdf"
 
-with pdf_data:
+with pdf_data_col:
     if os.path.exists(file):
         st.write('uploaded')
         displayPDF(file)
