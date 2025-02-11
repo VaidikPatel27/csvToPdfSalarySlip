@@ -128,8 +128,11 @@ def download_pdf(file):
         pdf_bytes = f.read()
 
     st.download_button(
-    label="Download PDF",
-    data=pdf_bytes,
-    file_name="example.pdf",
-    mime="application/pdf"
-)
+                        label="Download PDF",
+                        data=pdf_bytes,
+                        file_name="example.pdf",
+                        mime="application/pdf"
+                    )
+    
+    if os.path.exists(file):
+        os.remove(file)
