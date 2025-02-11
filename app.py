@@ -48,7 +48,7 @@ with in_data:
             f.write(uploaded_csv.getbuffer())
 
 
-    
+
     if (os.path.exists(uploaded_csv_path)) & (uploaded_csv is not None):
         csv = uploaded_csv_path
         df = pd.read_csv(csv, index_col=False)
@@ -123,6 +123,8 @@ with in_data:
 # show pdf/s
 
 file = "PDFs/output.pdf"
+
+st.write(os.path.exists(file))
 
 with pdf_data:
     if os.path.exists(file):
