@@ -114,11 +114,13 @@ def save_pdf(pdf_names):
             pass
 
 def displayPDF(file):
-    # with open(file, "rb") as f:
-    #     base64_pdf = base64.b64encode(f.read()).decode('utf-8')
+    st.write("first")
+    with open(file, "rb") as f:
+        st.write("second")
+        base64_pdf = base64.b64encode(f.read()).decode('utf-8')
+    st.write("third")
+    pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="700" height="900" type="application/pdf"></iframe>'
+    st.write("fourth")
+    st.markdown(pdf_display, unsafe_allow_html=True)
+    # st.components.v1.html(pdf_display, height=900)
 
-    # pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf">'
-
-    # st.markdown(pdf_display, unsafe_allow_html=True)
-
-    pdf_viewer(file)
