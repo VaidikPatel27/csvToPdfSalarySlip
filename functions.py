@@ -121,6 +121,6 @@ def displayPDF(file):
     st.write("third")
     pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="900" type="application/pdf">'
     st.write("fourth")
-    st.markdown(pdf_display, unsafe_allow_html=True)
-    # st.components.v1.html(pdf_display, height=900)
+    # st.markdown(pdf_display, unsafe_allow_html=True)
+    st.components.v1.html(pdf_display, height=900)
 
