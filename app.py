@@ -126,12 +126,10 @@ file = "PDFs/output.pdf"
 
 with pdf_data_col:
     if os.path.exists(file):
-        st.write('uploaded')
         displayPDF(file)
     else:
         file = "PDFs/test.pdf"
         displayPDF(file)
-        st.write('non-uploaded')
 
 
     
